@@ -138,8 +138,8 @@ Func __WK__Convert($oSelf)
 	  $sCmd &= "--page-size " & $oSelf.PageSize & " "
 	  If Not $oSelf.Images Then $sCmd &= "--no-images "
 	  $sCmd &= "--javascript-delay " & $oSelf.JavascriptDelay & " "
-	  If $oSelf.FooterHtml Then $sCmd &= "--footer-html " & $oSelf.FooterHtml & " "
-	  If $oSelf.FooterHtml Then $sCmd &= "--header-html " & $oSelf.HeaderHtml & " "
+	  If $oSelf.FooterHtml Then $sCmd &= "--footer-html """ & $oSelf.FooterHtml & """ "
+	  If $oSelf.FooterHtml Then $sCmd &= "--header-html """ & $oSelf.HeaderHtml & """ "
 
 	  ; replaces - supported only on PDF
 	  $ubound = UBound($__WK_Replaces)
