@@ -83,6 +83,9 @@ Func WKHtmlToX($sTo = "pdf")
    $oClassObject.AddProperty("JavascriptDelay", $ELSCOPE_PUBLIC, 200)
    $oClassObject.AddProperty("FooterHtml", $ELSCOPE_PUBLIC, False)
    $oClassObject.AddProperty("HeaderHtml", $ELSCOPE_PUBLIC, False)
+   $oClassObject.AddProperty("HeaderLeft", $ELSCOPE_PUBLIC, False)
+   $oClassObject.AddProperty("HeaderRight", $ELSCOPE_PUBLIC, False)
+   $oClassObject.AddProperty("PrintMediaType", $ELSCOPE_PUBLIC, False)
 
    ; Image options
    $oClassObject.AddProperty("CropH", $ELSCOPE_PUBLIC, False)
@@ -139,7 +142,10 @@ Func __WK__Convert($oSelf)
 	  If Not $oSelf.Images Then $sCmd &= "--no-images "
 	  $sCmd &= "--javascript-delay " & $oSelf.JavascriptDelay & " "
 	  If $oSelf.FooterHtml Then $sCmd &= "--footer-html """ & $oSelf.FooterHtml & """ "
-	  If $oSelf.FooterHtml Then $sCmd &= "--header-html """ & $oSelf.HeaderHtml & """ "
+	  If $oSelf.HeaderHtml Then $sCmd &= "--header-html """ & $oSelf.HeaderHtml & """ "
+	  If $oSelf.HeaderRight Then $sCmd &= "--header-right """ & $oSelf.HeaderRight & """ "
+	  If $oSelf.HeaderLeft Then $sCmd &= "--header-left """ & $oSelf.HeaderLeft & """ "
+	  If $oSelf.PrintMediaType Then $sCmd &= "--print-media-type "
 
 	  ; replaces - supported only on PDF
 	  $ubound = UBound($__WK_Replaces)
